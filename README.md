@@ -3,7 +3,7 @@ Utilitário para importação dos contatos do Google Contatos para o Google Shee
 
 A ferramenta Google Contatos (onde se encontram informações de e-mail, telefone, cargo... dos contatos de quem utiliza os serviços do Google),
 dispõe de funcionalidade de importação dos dados, mas a mesma só pode ser "baixada" no formato <b>CSV</b> ou <b>vCard</b>, dificultando para quem apenas necessita
-de uma listagem simples em um arquivo <b>XLS ou <b>XLSX, por exemplo. Segue print da tela de importação:
+de uma listagem simples em um arquivo <b>XLS</b> ou <b>XLSX</b>, por exemplo. Segue print da tela de importação:
 
 <img src="https://uploaddeimagens.com.br/images/003/023/118/full/contatos.PNG" />
 
