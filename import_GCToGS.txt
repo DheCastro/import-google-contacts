@@ -1,0 +1,48 @@
+/** Utility to import contacts from Google Contacts to Google Sheets **/
+
+//Auxiliar variables
+var outputName = [];
+var outputEmail = [];
+
+/** Import contacts with name and e-mail **/
+function importContactsToSheet(){
+
+//Retrieve all contacts from Google
+var contacts = ContactsApp.getContacts();
+var contactsLen = contacts.length;  
+  
+for(var i = 0; i < contactsLen; i++){
+  
+  //Retrieve fullname and e-mail contact
+  var fullname = contacts[i].getFullName();
+  var emailAddress = contacts[i].getEmails();
+    
+  //Verify empty data
+  if(fullname != "" && emailAddress != ""){
+    
+    //Add data in the list variables
+    outputName.push([fullname]);
+    outputEmail.push([emailAddress.map(function(e) {return e.getAddress()}).join(",")]);  
+  
+  } else{
+    continue;
+  }
+}
+  
+//Write data in the Google Sheet associated with script  
+SpreadsheetApp.getActiveSheet().getRange(1, 1, outputName.length, 1).setValues(outputName);
+SpreadsheetApp.getActiveSheet().getRange(1, 2, outputEmail.length, 1).setValues(outputEmail);
+}
+
+/** List contact groups **/
+function getGroups(){ 
+
+//Retrieve all contact groups from Google
+var groups = ContactsApp.getContactGroups();
+var contactGroupsLen = contacts.length;    
+  
+for(var i = 0; i < contactGroupsLen; i++) {
+  Logger.log(groups[i].getName());
+}
+}
+  
